@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import List, Optional
 
 
@@ -13,9 +13,13 @@ class Movie(BaseModel):
     genre: List[str]
     duration: str
     trailer_url: Optional[str] = None
+    
+    model_config = ConfigDict(from_attributes=True)
 
 
 class Category(BaseModel):
     id: int
     name: str
     movies: List[Movie]
+    
+    model_config = ConfigDict(from_attributes=True)

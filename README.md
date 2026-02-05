@@ -22,7 +22,8 @@ Netflix 스타일의 OTT 스트리밍 웹 서비스 클론 프로젝트입니다
 cd backend
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
+python seed_data.py   # 데이터베이스 초기화 (필수)
 uvicorn main:app --reload --port 8000
 ```
 
@@ -39,12 +40,15 @@ npm run dev
 project-orbit/
 ├── backend/          # FastAPI 서버
 │   ├── main.py       # API 엔드포인트
-│   ├── models.py     # 데이터 모델
-│   └── data.py       # 샘플 데이터
+│   ├── models.py     # Pydantic 모델
+│   ├── sql_models.py # SQLAlchemy 모델
+│   ├── database.py   # DB 연결 설정
+│   └── seed_data.py  # 초기 데이터 시딩 스크립트
 ├── frontend/         # React 클라이언트
 │   └── src/
-│       ├── components/
-│       └── pages/
+│       ├── api/      # API 요청 함수
+│       ├── components/ # 재사용 컴포넌트
+│       └── pages/    # 라우트 페이지
 └── README.md
 ```
 
