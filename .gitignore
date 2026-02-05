@@ -41,6 +41,9 @@ __pycache__/
 .env.local
 .env.*.local
 *.local
+*.db
+*.sqlite3
+sql_app.db
 
 # ====================
 # Logs
